@@ -1,0 +1,597 @@
+Traceback (most recent call last):
+  File "/home/akhasib/soc_side/venv/bin/uvicorn", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 433, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<47 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 606, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "/usr/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 79, in serve
+    await self._serve(sockets)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 86, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/config.py", line 441, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/akhasib/soc_side/api/main.py", line 7, in <module>
+    from api.process_run import process
+  File "/home/akhasib/soc_side/api/process_run.py", line 2, in <module>
+    from llm.clients.deepseek_r1_client import call_deepseek_r1
+  File "/home/akhasib/soc_side/llm/clients/deepseek_r1_client.py", line 18, in <module>
+    raise RuntimeError("DEEPSEEK_API_KEY is not set")
+RuntimeError: DEEPSEEK_API_KEY is not set
+Traceback (most recent call last):
+  File "/home/akhasib/soc_side/venv/bin/uvicorn", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 433, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<47 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 606, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "/usr/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 79, in serve
+    await self._serve(sockets)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 86, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/config.py", line 441, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/akhasib/soc_side/api/main.py", line 7, in <module>
+    from api.process_run import process
+  File "/home/akhasib/soc_side/api/process_run.py", line 2, in <module>
+    from llm.clients.deepseek_r1_client import call_deepseek_r1
+  File "/home/akhasib/soc_side/llm/clients/deepseek_r1_client.py", line 18, in <module>
+    raise RuntimeError("DEEPSEEK_API_KEY is not set")
+RuntimeError: DEEPSEEK_API_KEY is not set
+Traceback (most recent call last):
+  File "/home/akhasib/soc_side/venv/bin/uvicorn", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 433, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<47 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 606, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "/usr/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 79, in serve
+    await self._serve(sockets)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 86, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/config.py", line 441, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/akhasib/soc_side/api/main.py", line 7, in <module>
+    from api.process_run import process
+  File "/home/akhasib/soc_side/api/process_run.py", line 2, in <module>
+    from llm.clients.deepseek_r1_client import call_deepseek_r1
+  File "/home/akhasib/soc_side/llm/clients/deepseek_r1_client.py", line 18, in <module>
+    raise RuntimeError("DEEPSEEK_API_KEY is not set")
+RuntimeError: DEEPSEEK_API_KEY is not set
+Traceback (most recent call last):
+  File "/home/akhasib/soc_side/venv/bin/uvicorn", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 433, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<47 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 606, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "/usr/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 79, in serve
+    await self._serve(sockets)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 86, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/config.py", line 441, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/akhasib/soc_side/api/main.py", line 7, in <module>
+    from api.process_run import process
+  File "/home/akhasib/soc_side/api/process_run.py", line 2, in <module>
+    from llm.clients.deepseek_r1_client import call_deepseek_r1
+  File "/home/akhasib/soc_side/llm/clients/deepseek_r1_client.py", line 18, in <module>
+    raise RuntimeError("DEEPSEEK_API_KEY is not set")
+RuntimeError: DEEPSEEK_API_KEY is not set
+Traceback (most recent call last):
+  File "/home/akhasib/soc_side/venv/bin/uvicorn", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 433, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<47 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 606, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "/usr/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 79, in serve
+    await self._serve(sockets)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 86, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/config.py", line 441, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/akhasib/soc_side/api/main.py", line 7, in <module>
+    from api.process_run import process
+  File "/home/akhasib/soc_side/api/process_run.py", line 2, in <module>
+    from llm.clients.deepseek_r1_client import call_deepseek_r1
+  File "/home/akhasib/soc_side/llm/clients/deepseek_r1_client.py", line 18, in <module>
+    raise RuntimeError("DEEPSEEK_API_KEY is not set")
+RuntimeError: DEEPSEEK_API_KEY is not set
+Traceback (most recent call last):
+  File "/home/akhasib/soc_side/venv/bin/uvicorn", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 433, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<47 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 606, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "/usr/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 79, in serve
+    await self._serve(sockets)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 86, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/config.py", line 441, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/akhasib/soc_side/api/main.py", line 7, in <module>
+    from api.process_run import process
+  File "/home/akhasib/soc_side/api/process_run.py", line 2, in <module>
+    from llm.clients.deepseek_r1_client import call_deepseek_r1
+  File "/home/akhasib/soc_side/llm/clients/deepseek_r1_client.py", line 18, in <module>
+    raise RuntimeError("DEEPSEEK_API_KEY is not set")
+RuntimeError: DEEPSEEK_API_KEY is not set
+INFO:     Started server process [6893]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[LLM] run_id=run_zap_002 model=deepseek-reasoner
+run run_zap_002 completed
+INFO:     127.0.0.1:54010 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33674 - "GET /soc/run/run_zap_002/status HTTP/1.1" 200 OK
+INFO:     Started server process [5775]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[LLM] run_id=run_003 model=deepseek-reasoner
+run run_003 completed
+INFO:     127.0.0.1:39100 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39512 - "GET /soc/run/run_003/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55440 - "POST /soc/intake HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56216 - "POST /soc/intake HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:42390 - "GET /soc/intake HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:34294 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+[LLM] run_id=run_002 model=deepseek-reasoner
+run run_002 completed
+INFO:     127.0.0.1:53504 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60842 - "GET /soc/run/run_002/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43668 - "POST /soc/intake HTTP/1.1" 400 Bad Request
+INFO:     Started server process [4532]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:42990 - "POST /soc/intake HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:34230 - "POST /soc/intake HTTP/1.1" 400 Bad Request
+[LLM] run_id=apache model=deepseek-reasoner
+run apache completed
+INFO:     127.0.0.1:37306 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55994 - "GET /soc/run/apache/status HTTP/1.1" 200 OK
+[LLM] run_id=pentest_10_129_115_98_2f1684cb model=deepseek-reasoner
+run pentest_10_129_115_98_2f1684cb completed
+INFO:     127.0.0.1:36262 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48062 - "GET /soc/run/pentest_10_129_115_98_2f1684cb/status HTTP/1.1" 200 OK
+[LLM] run_id=apache model=deepseek-reasoner
+run apache completed
+INFO:     127.0.0.1:40060 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53700 - "GET /soc/run/apache/status HTTP/1.1" 200 OK
+[LLM] run_id=pentest_10_129_149_203_95dd2ee7 model=deepseek-reasoner
+[LLM] run_id=pentest_10_129_149_203_95dd2ee7 model=deepseek-reasoner
+run pentest_10_129_149_203_95dd2ee7 completed
+INFO:     127.0.0.1:53560 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40270 - "GET /soc/run/pentest_10_129_149_203_95dd2ee7/status HTTP/1.1" 200 OK
+run pentest_10_129_149_203_95dd2ee7 completed
+INFO:     127.0.0.1:53602 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52136 - "GET /soc/run/pentest_10_129_149_203_95dd2ee7/status HTTP/1.1" 200 OK
+Traceback (most recent call last):
+  File "/home/akhasib/soc_side/venv/bin/uvicorn", line 6, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1485, in __call__
+    return self.main(*args, **kwargs)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1406, in main
+    rv = self.invoke(ctx)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 1269, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/click/core.py", line 824, in invoke
+    return callback(*args, **kwargs)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 433, in main
+    run(
+    ~~~^
+        app,
+        ^^^^
+    ...<47 lines>...
+        h11_max_incomplete_event_size=h11_max_incomplete_event_size,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/main.py", line 606, in run
+    server.run()
+    ~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 75, in run
+    return asyncio_run(self.serve(sockets=sockets), loop_factory=self.config.get_loop_factory())
+  File "/usr/lib/python3.13/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/asyncio/base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 79, in serve
+    await self._serve(sockets)
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/server.py", line 86, in _serve
+    config.load()
+    ~~~~~~~~~~~^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/config.py", line 441, in load
+    self.loaded_app = import_from_string(self.app)
+                      ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/akhasib/soc_side/venv/lib/python3.13/site-packages/uvicorn/importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1023, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/akhasib/soc_side/api/main.py", line 7, in <module>
+    from api.process_run import process
+  File "/home/akhasib/soc_side/api/process_run.py", line 2, in <module>
+    from llm.clients.deepseek_r1_client import call_deepseek_r1
+  File "/home/akhasib/soc_side/llm/clients/deepseek_r1_client.py", line 18, in <module>
+    raise RuntimeError("DEEPSEEK_API_KEY is not set")
+RuntimeError: DEEPSEEK_API_KEY is not set
+INFO:     Started server process [4156]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[LLM] run_id=pentest_10_129_149_203_967b5ae5 model=deepseek-reasoner
+[LLM] run_id=pentest_10_129_149_203_967b5ae5 model=deepseek-reasoner
+[LLM] run_id=pentest_10_129_149_203_967b5ae5 model=deepseek-reasoner
+INFO:     127.0.0.1:59156 - "POST /soc/intake HTTP/1.1" 500 Internal Server Error
+run pentest_10_129_149_203_967b5ae5 completed
+INFO:     127.0.0.1:59168 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36362 - "GET /soc/run/pentest_10_129_149_203_967b5ae5/status HTTP/1.1" 200 OK
+run pentest_10_129_149_203_967b5ae5 completed
+INFO:     127.0.0.1:59140 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36370 - "GET /soc/run/pentest_10_129_149_203_967b5ae5/status HTTP/1.1" 200 OK
+[LLM] run_id=pentest_10_129_149_203_92acb0eb model=deepseek-reasoner
+[LLM] run_id=pentest_10_129_149_203_92acb0eb model=deepseek-reasoner
+[LLM] run_id=pentest_10_129_149_203_92acb0eb model=deepseek-reasoner
+run pentest_10_129_149_203_92acb0eb completed
+INFO:     127.0.0.1:48640 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44878 - "GET /soc/run/pentest_10_129_149_203_92acb0eb/status HTTP/1.1" 200 OK
+run pentest_10_129_149_203_92acb0eb completed
+INFO:     127.0.0.1:48612 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44882 - "GET /soc/run/pentest_10_129_149_203_92acb0eb/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48610 - "POST /soc/intake HTTP/1.1" 500 Internal Server Error
+INFO:     Started server process [22929]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+[PROCESS] Starting run_id=pentest_10_129_149_203_92acb0eb
+[PROCESS] Normalized JSON saved: /home/akhasib/soc_side/logs/normalized/pentest_10_129_149_203_92acb0eb_normalized.json
+[LLM] run_id=pentest_10_129_149_203_92acb0eb model=deepseek-reasoner
+[PROCESS] LLM JSON report saved: /home/akhasib/soc_side/reports/json/pentest_10_129_149_203_92acb0eb_report.json
+[PROCESS] Markdown report saved: /home/akhasib/soc_side/reports/md/pentest_10_129_149_203_92acb0eb_report.md
+[PROCESS] DOCX report saved: /home/akhasib/soc_side/reports/docx/pentest_10_129_149_203_92acb0eb_report.docx
+[PROCESS] run pentest_10_129_149_203_92acb0eb completed successfully
+[PROCESS] Starting run_id=pentest_10_129_149_203_92acb0eb
+[PROCESS] Normalized JSON saved: /home/akhasib/soc_side/logs/normalized/pentest_10_129_149_203_92acb0eb_normalized.json
+[LLM] run_id=pentest_10_129_149_203_92acb0eb model=deepseek-reasoner
+[PROCESS] LLM JSON report saved: /home/akhasib/soc_side/reports/json/pentest_10_129_149_203_92acb0eb_report.json
+[PROCESS] Markdown report saved: /home/akhasib/soc_side/reports/md/pentest_10_129_149_203_92acb0eb_report.md
+[PROCESS] DOCX report saved: /home/akhasib/soc_side/reports/docx/pentest_10_129_149_203_92acb0eb_report.docx
+[PROCESS] run pentest_10_129_149_203_92acb0eb completed successfully
+INFO:     127.0.0.1:35414 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35704 - "GET /soc/run/pentest_10_129_149_203_92acb0eb/status HTTP/1.1" 200 OK
+[PROCESS] Starting run_id=pentest_10_129_149_203_92acb0eb_raw
+[PROCESS] Normalized JSON saved: /home/akhasib/soc_side/logs/normalized/pentest_10_129_149_203_92acb0eb_raw_normalized.json
+[LLM] run_id=pentest_10_129_149_203_92acb0eb_raw model=deepseek-reasoner
+[PROCESS] LLM JSON report saved: /home/akhasib/soc_side/reports/json/pentest_10_129_149_203_92acb0eb_raw_report.json
+[PROCESS] Markdown report saved: /home/akhasib/soc_side/reports/md/pentest_10_129_149_203_92acb0eb_raw_report.md
+[PROCESS] DOCX report saved: /home/akhasib/soc_side/reports/docx/pentest_10_129_149_203_92acb0eb_raw_report.docx
+[PROCESS] run pentest_10_129_149_203_92acb0eb_raw completed successfully
+INFO:     127.0.0.1:42242 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59648 - "GET /soc/run/pentest_10_129_149_203_92acb0eb_raw/status HTTP/1.1" 200 OK
+[PROCESS] Starting run_id=pentest_10_129_149_203_92acb0eb_raw_raw
+[PROCESS] Normalized JSON saved: /home/akhasib/soc_side/logs/normalized/pentest_10_129_149_203_92acb0eb_raw_raw_normalized.json
+[LLM] run_id=pentest_10_129_149_203_92acb0eb_raw_raw model=deepseek-reasoner
+[PROCESS] LLM JSON report saved: /home/akhasib/soc_side/reports/json/pentest_10_129_149_203_92acb0eb_raw_raw_report.json
+[PROCESS] Markdown report saved: /home/akhasib/soc_side/reports/md/pentest_10_129_149_203_92acb0eb_raw_raw_report.md
+[PROCESS] DOCX report saved: /home/akhasib/soc_side/reports/docx/pentest_10_129_149_203_92acb0eb_raw_raw_report.docx
+[PROCESS] run pentest_10_129_149_203_92acb0eb_raw_raw completed successfully
+INFO:     127.0.0.1:57078 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50516 - "GET /soc/run/pentest_10_129_149_203_92acb0eb_raw_raw/status HTTP/1.1" 200 OK
+[PROCESS] Starting run_id=run_hard_004
+[PROCESS] Normalized JSON saved: /home/akhasib/soc_side/logs/normalized/run_hard_004_normalized.json
+[LLM] run_id=run_hard_004 model=deepseek-reasoner
+[PROCESS] LLM JSON report saved: /home/akhasib/soc_side/reports/json/run_hard_004_report.json
+[PROCESS] Markdown report saved: /home/akhasib/soc_side/reports/md/run_hard_004_report.md
+[PROCESS] DOCX report saved: /home/akhasib/soc_side/reports/docx/run_hard_004_report.docx
+[PROCESS] run run_hard_004 completed successfully
+INFO:     127.0.0.1:37186 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43106 - "GET /soc/run/run_hard_004/status HTTP/1.1" 200 OK
+[PROCESS] Starting run_id=apache
+[PROCESS] Normalized JSON saved: /home/akhasib/soc_side/logs/normalized/apache_normalized.json
+[LLM] run_id=apache model=deepseek-reasoner
+[PROCESS] LLM JSON report saved: /home/akhasib/soc_side/reports/json/apache_report.json
+[PROCESS] Markdown report saved: /home/akhasib/soc_side/reports/md/apache_report.md
+[PROCESS] DOCX report saved: /home/akhasib/soc_side/reports/docx/apache_report.docx
+[PROCESS] run apache completed successfully
+INFO:     127.0.0.1:48258 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36894 - "GET /soc/run/apache/status HTTP/1.1" 200 OK
+[PROCESS] Starting run_id=run_hard_004_raw
+[PROCESS] Normalized JSON saved: /home/akhasib/soc_side/logs/normalized/run_hard_004_raw_normalized.json
+[LLM] run_id=run_hard_004_raw model=deepseek-reasoner
+[PROCESS] LLM JSON report saved: /home/akhasib/soc_side/reports/json/run_hard_004_raw_report.json
+[PROCESS] Markdown report saved: /home/akhasib/soc_side/reports/md/run_hard_004_raw_report.md
+[PROCESS] DOCX report saved: /home/akhasib/soc_side/reports/docx/run_hard_004_raw_report.docx
+[PROCESS] run run_hard_004_raw completed successfully
+INFO:     127.0.0.1:36896 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39080 - "GET /soc/run/run_hard_004_raw/status HTTP/1.1" 200 OK
+[PROCESS] Starting run_id=pentest_10_129_149_203_92acb0eb
+[PROCESS] Normalized JSON saved: /home/akhasib/soc_side/logs/normalized/pentest_10_129_149_203_92acb0eb_normalized.json
+[LLM] run_id=pentest_10_129_149_203_92acb0eb model=deepseek-reasoner
+[PROCESS] LLM JSON report saved: /home/akhasib/soc_side/reports/json/pentest_10_129_149_203_92acb0eb_report.json
+[PROCESS] Markdown report saved: /home/akhasib/soc_side/reports/md/pentest_10_129_149_203_92acb0eb_report.md
+[PROCESS] DOCX report saved: /home/akhasib/soc_side/reports/docx/pentest_10_129_149_203_92acb0eb_report.docx
+[PROCESS] run pentest_10_129_149_203_92acb0eb completed successfully
+INFO:     127.0.0.1:33326 - "POST /soc/intake HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46726 - "GET /soc/run/pentest_10_129_149_203_92acb0eb/status HTTP/1.1" 200 OK

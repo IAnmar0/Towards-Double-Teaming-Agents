@@ -1,0 +1,14 @@
+services:
+  soc-side:
+    build: .
+    container_name: soc-side
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+      - ./retrieval:/app/retrieval
+      - ./evaluation:/app/evaluation
+    restart: unless-stopped
