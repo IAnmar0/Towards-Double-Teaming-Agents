@@ -1,0 +1,13 @@
+[
+  {
+    "service": "Apache HTTP Server",
+    "version_hint": "2.4.49",
+    "cve": "CVE-2021-41773",
+    "weakness": "Path Traversal",
+    "mitigations": [
+      "Upgrade Apache to a patched version",
+      "Disable vulnerable path mappings",
+      "Review exposed aliases and file permissions"
+    ]
+  }
+]
