@@ -12,7 +12,7 @@ Pipeline flow:
   STEP 1 -> bash run_pentest.sh <target>           (subprocess + xterm popup tail)
   STEP 2 -> docker cp log out of container          (to Generated_logs/)
   STEP 3 -> python3 claude_log_to_json.py <l> <j>  (log -> JSON)
-  STEP 4 -> rsync JSON to SOC machine               (SOC MAACHINE IP ADDRESS)
+  STEP 4 -> rsync JSON to SOC machine               (SOC MAACHINE TAILSCALE IP ADDRESS)
   STEP 5 -> ssh -T -> python3 run_soc.py on SOC     (generates DOCX)
   STEP 6 -> rsync DOCX back to pentest machine      (Deop/soc_report/ or your prefered location)
   STEP 7 -> Flask serves DOCX for download
