@@ -9,7 +9,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-SOC_BASE = Path("/home/akhasib/soc_side")
+SOC_BASE = Path("'your path'/soc_side")
 load_dotenv(SOC_BASE / ".env")
 
 WATCH_DIR_DEFAULT = SOC_BASE / "samples"
