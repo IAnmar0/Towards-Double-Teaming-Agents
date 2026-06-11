@@ -12,9 +12,9 @@ Pipeline flow:
   STEP 1 -> bash run_pentest.sh <target>           (subprocess + xterm popup tail)
   STEP 2 -> docker cp log out of container          (to Generated_logs/)
   STEP 3 -> python3 claude_log_to_json.py <l> <j>  (log -> JSON)
-  STEP 4 -> rsync JSON to SOC machine               (100.77.230.26)
+  STEP 4 -> rsync JSON to SOC machine               (SOC MAACHINE IP ADDRESS)
   STEP 5 -> ssh -T -> python3 run_soc.py on SOC     (generates DOCX)
-  STEP 6 -> rsync DOCX back to pentest machine      (Desktop/soc_report/)
+  STEP 6 -> rsync DOCX back to pentest machine      (Deop/soc_report/ or your prefered location)
   STEP 7 -> Flask serves DOCX for download
 
 Install:
@@ -104,6 +104,9 @@ def log_success(t): log_banner(f"OK  {t}", C.BGREEN)
 def log_fail(t):    log_banner(f"FAIL  {t}", C.BRED)
 
 # PATH CONFIGURATION
+
+# Please edit the necessary paths and names before launching the app
+
 APP_DIR            = Path(__file__).resolve().parent
 HOME               = str(Path.home())
 PENTEST_SCRIPT     = os.environ.get("PENTEST_SCRIPT", str(APP_DIR / "run_pentest.sh"))
@@ -112,11 +115,11 @@ GENERATED_LOGS_DIR = os.environ.get("GENERATED_LOGS_DIR", str(APP_DIR / "Generat
 LOG_ON_DESKTOP     = os.environ.get("PENTEST_LIVE_LOG", str(Path(GENERATED_LOGS_DIR) / "pentest_full_output.log"))
 JOB_STORE_PATH     = os.environ.get("JOB_STORE_PATH", str(Path(GENERATED_LOGS_DIR) / "jobs_state.json"))
 REPORT_LOCAL_DIR   = os.environ.get("REPORT_LOCAL_DIR", str(APP_DIR / "soc_report"))
-SOC_USER           = os.environ.get("SOC_USER", "akhasib")
-SOC_HOST           = os.environ.get("SOC_HOST", "100.77.230.26")
-SOC_SAMPLES_DIR    = os.environ.get("SOC_SAMPLES_DIR", "/home/akhasib/soc_side/samples")
-SOC_REPORTS_DIR    = os.environ.get("SOC_REPORTS_DIR", "/home/akhasib/soc_side/reports/docx")
-SOC_RUN_SCRIPT     = os.environ.get("SOC_RUN_SCRIPT", "/home/akhasib/soc_side/run_soc.py")
+SOC_USER           = os.environ.get("SOC_USER", "enter your machines/OS username")
+SOC_HOST           = os.environ.get("SOC_HOST", "your Tailscale/any secure VPN IP")
+SOC_SAMPLES_DIR    = os.environ.get("SOC_SAMPLES_DIR", "Replace this with your samples directory")
+SOC_REPORTS_DIR    = os.environ.get("SOC_REPORTS_DIR", "Replace this with your generated documents directory")
+SOC_RUN_SCRIPT     = os.environ.get("SOC_RUN_SCRIPT", "Replace this with your the path for your downloaded run_soc.py path")
 MAX_RETRIES        = int(os.environ.get("MAX_RETRIES", "3"))
 RETRY_DELAY        = int(os.environ.get("RETRY_DELAY", "5"))
 
@@ -793,18 +796,18 @@ def _dynamic_json_candidates(expected, newer_than=0):
 def wait_for_json_file(filepath, job_id, step_name="JSON check",
                        retries=JSON_VERIFY_RETRIES, delay=JSON_VERIFY_DELAY,
                        newer_than=0, converter_output=""):
-    """Wait for JSON and recover files written to a nearby/Desktop path."""
+    """Wait for JSON and recover files written to a nearby/Deop path."""
     expected = Path(filepath)
     fallback_paths = _unique_paths([
         expected,
         APP_DIR / expected.name,
         APP_DIR / "Generated_logs" / expected.name,
         Path(GENERATED_LOGS_DIR).parent / expected.name,
-        Path(HOME) / "Desktop" / expected.name,
+        Path(HOME) / "Deop" / expected.name,
         Path(GENERATED_LOGS_DIR) / "pentest_full_output.json",
         APP_DIR / "Generated_logs" / "pentest_full_output.json",
         APP_DIR / "pentest_full_output.json",
-        Path(HOME) / "Desktop" / "pentest_full_output.json",
+        Path(HOME) / "Deop" / "pentest_full_output.json",
     ])
 
     attempt = 0
@@ -961,7 +964,7 @@ def assessment_pipeline(job_id, target, mode):
                   progress=8)
 
         # xterm popup tails the log (read-only); pentest runs ONCE below
-        launch_popup_terminal(title=f"PentestGPT - {target}", tail_file=LOG_ON_DESKTOP)
+        launch_popup_terminal(title=f"PentestGPT - {target}", tail_file=LOG_ON_DEOP)
 
         stop_heartbeat = threading.Event()
         threading.Thread(
@@ -1051,13 +1054,13 @@ def assessment_pipeline(job_id, target, mode):
         except Exception as _strip_exc:
             log(job_id, "warn", f"ANSI strip step failed (non-fatal): {_strip_exc}")
 
-        # Mirror the cleaned log to LOG_ON_DESKTOP so the xterm tail shows real content
+        # Mirror the cleaned log to LOG_ON_DEOP so the xterm tail shows real content
         try:
-            os.makedirs(os.path.dirname(LOG_ON_DESKTOP), exist_ok=True)
-            shutil.copyfile(job_log_path, LOG_ON_DESKTOP)
-            log(job_id, "ok", f"Live log updated at {LOG_ON_DESKTOP}")
+            os.makedirs(os.path.dirname(LOG_ON_DEOP), exist_ok=True)
+            shutil.copyfile(job_log_path, LOG_ON_DEOP)
+            log(job_id, "ok", f"Live log updated at {LOG_ON_DEOP}")
         except Exception as _mirror_exc:
-            log(job_id, "warn", f"Could not mirror log to {LOG_ON_DESKTOP}: {_mirror_exc}")
+            log(job_id, "warn", f"Could not mirror log to {LOG_ON_DEOP}: {_mirror_exc}")
 
         wait_for_file(job_log_path, job_id, step_name="STEP 2 - log verification")
         log(job_id, "ok", f"{C.BGREEN}STEP 2 - Log extracted and cleaned{C.RESET}")
@@ -1956,7 +1959,7 @@ def api_health():
         "paths": {
             "pentest_script": PENTEST_SCRIPT,
             "json_converter": JSON_CONVERTER,
-            "log_path":       LOG_ON_DESKTOP,
+            "log_path":       LOG_ON_DEOP,
             "json_dir":       GENERATED_LOGS_DIR,
             "job_store":      JOB_STORE_PATH,
             "report_dir":     REPORT_LOCAL_DIR,
