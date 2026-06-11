@@ -1,6 +1,6 @@
-# AI Security Assessment Platform
+# Towards-Double-Teaming-Agents
 
-This README explains how another user can install, configure, run, and use the full project on their own devices.
+This README explains how to install, configure, run, and use the full project on their own devices.
 
 The platform connects two main components:
 
@@ -389,16 +389,10 @@ tailscale status
 
 Record the Tailscale IP of the SOC machine.
 
-Example:
-
-```text
-100.80.20.15
-```
-
 From the Pentest machine, test connectivity:
 
 ```bash
-ping 100.80.20.15
+ping TAILSCALEVPN
 ```
 
 ---
@@ -419,23 +413,17 @@ Copy the key to the SOC machine:
 ssh-copy-id SOC_USER@SOC_TAILSCALE_IP
 ```
 
-Example:
-
-```bash
-ssh-copy-id akhasib@100.80.20.15
-```
-
 Test passwordless SSH:
 
 ```bash
-ssh akhasib@100.80.20.15
+ssh SOC_USER@SOC_TAILSCALE_IP
 ```
 
 Test file transfer:
 
 ```bash
 echo '{"test": true}' > test.json
-rsync -av test.json akhasib@100.80.20.15:/home/akhasib/soc_side/samples/
+rsync -av test.json SOC_USER@SOC_TAILSCALE_IP:...../soc_side/samples/
 ```
 
 On the SOC machine:
@@ -462,12 +450,12 @@ ANTHROPIC_API_KEY=your_anthropic_api_key
 
 APP_API_KEY=optional_backend_api_key
 
-SOC_USER=akhasib
-SOC_HOST=100.80.20.15
-SOC_BASE_DIR=/home/akhasib/soc_side
-SOC_SAMPLES_DIR=/home/akhasib/soc_side/samples
-SOC_REPORTS_DIR=/home/akhasib/soc_side/reports/docx
-SOC_RUN_SCRIPT=/home/akhasib/soc_side/run_soc.py
+SOC_USER=.....
+SOC_HOST=......
+SOC_BASE_DIR=...../soc_side
+SOC_SAMPLES_DIR=....../soc_side/samples
+SOC_REPORTS_DIR=....../soc_side/reports/docx
+SOC_RUN_SCRIPT=....../soc_side/run_soc.py
 
 ALLOW_PRIVATE_TARGETS=true
 ALLOW_LOOPBACK_TARGETS=false
@@ -499,7 +487,7 @@ Never write the real Anthropic API key directly inside Python or Bash code.
 Do not do this:
 
 ```python
-ANTHROPIC_API_KEY = "sk-ant-api03-example"
+ANTHROPIC_API_KEY = "put your api key here"
 ```
 
 Use:
@@ -562,14 +550,6 @@ Example expected local paths:
 /home/USER/PROJECT/reports
 ```
 
-Example SOC paths:
-
-```text
-/home/akhasib/soc_side/samples
-/home/akhasib/soc_side/reports/docx
-/home/akhasib/soc_side/run_soc.py
-```
-
 Make scripts executable:
 
 ```bash
@@ -602,7 +582,7 @@ docker ps
 Run only against an authorized lab target:
 
 ```bash
-bash run_pentest.sh 192.168.100.101
+bash run_pentest.sh 'authorized_ip'
 ```
 
 Confirm that the raw log is created inside the container:
@@ -803,7 +783,7 @@ Meaning:
 curl -X POST http://127.0.0.1:5000/api/start \
   -H "Content-Type: application/json" \
   -d '{
-    "target": "192.168.100.101",
+    "target": "authorized_ip",
     "mode": "ip"
   }'
 ```
@@ -815,7 +795,7 @@ curl -X POST http://127.0.0.1:5000/api/start \
   -H "Content-Type: application/json" \
   -H "X-API-Key: YOUR_APP_API_KEY" \
   -d '{
-    "target": "192.168.100.101",
+    "target": "authorized_ip",
     "mode": "ip"
   }'
 ```
